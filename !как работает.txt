@@ -1,0 +1,55 @@
+    Здесь запускается симулятор:
+ppo2.py @line333    obs, returns, masks, actions, values, neglogpacs, states, epinfos = runner.run()  
+    Именно его надо визуализировать.
+    
+    Функция runner.run()  определена в том же ppo2.py @line160
+    
+___ (вроде неактуально)    Изменяем nsteps с 2048 на 1, поскольку это batch_size, а в интерактивной версии пусть он будет равен 1       ppo2.py @line221
+
+    Симулятор запускается здесь:
+ppo2.py @line178    self.obs[:], rewards, self.dones, infos = self.env.step(actions)
+
+!!!  Чтобы визуализировать обучение, достаточно поставить 
+ppo2.py @line179    self.env.render()
+
+    Нам надо изменить rewards, полученные в  ppo2.py @line178,    на введенные оператором
+    
+    
+while True:
+    try:
+        if keyboard.is_pressed('q'):
+            print('You Pressed A Key!')
+            break
+        else:
+            pass
+    except:
+        break
+
+while True:
+    if keyboard.is_pressed('q'):
+        print('You Pressed A Key!')
+        break
+    else:
+        pass
+        
+
+============== нейросетки ===================
+А сами нейросетки описаны здесь:    /home/ai/baselines_my/baselines/common/models.py
+при этом для не-атари выбирается 'mlp'  в /home/ai/baselines_my/baselines/run.py @line138
+
+============== Как создать ещё одну нейросетку ==============
+run.py @line75      model = learn(<...>)        заменить на  model, model2 = ...
+    это он имеет в виду функцию  learn()  внутри ppo2.py @line228       (надо, чтобы она возвращала два объекта в  ppo.py @line415)
+         которая в  ppo2.py @line309  создает объект Model()   описанный в ppo2.py @line21
+
+ppo2 @line171       = self.model.step <...>         тут надо поставить ещё    = self.model2.step <...> 
+
+action_space  определен в  ppo2_muag.py @line305        ac_space = env.action_space
+        env  определен в  run.py @line111                   env = make_vec_env(env_id, <...>)
+        а конкретнее, в   baselines_my/baselines/common/cmd_util.py @line55             env = gym.make(env_id)
+        
+value function  считается в  baselines/common/policies.py @line63
+action  считается в   baselines/common/distributions.py @line96
+
+=========================
+gym находится здесь /home/ai/ants_env_my/lib/python3.6/site-packages/gym/envs/mujoco/

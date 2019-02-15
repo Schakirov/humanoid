@@ -1,0 +1,15 @@
+Wed Oct 24 15:28:31 2018
+ERROR: GLEW initalization error: Missing GL version
+
+Wed Oct 24 17:54:36 2018
+ERROR: GLEW initalization error: Missing GL version
+
+Mon Oct 29 12:19:41 2018
+ERROR: GLEW initalization error: Missing GL version
+
+Fri Nov  9 17:19:13 2018
+ERROR: OpenGL version 1.5 or higher required
+
+Fri Nov  9 18:07:49 2018
+ERROR: GLEW initalization error: Missing GL version
+

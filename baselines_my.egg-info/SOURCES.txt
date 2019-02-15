@@ -1,0 +1,7 @@
+README.md
+setup.cfg
+baselines_my.egg-info/PKG-INFO
+baselines_my.egg-info/SOURCES.txt
+baselines_my.egg-info/dependency_links.txt
+baselines_my.egg-info/requires.txt
+baselines_my.egg-info/top_level.txt
