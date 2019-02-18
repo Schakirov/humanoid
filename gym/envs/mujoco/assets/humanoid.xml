@@ -33,7 +33,7 @@
             <body name="lwaist" pos="-.01 0 -0.260" quat="1.000 0 -0.002 0">
                 <geom fromto="0 -.06 0 0 .06 0" name="lwaist" size="0.06" type="capsule"/>
                 <joint armature="0.02" axis="0 0 1" damping="5" name="abdomen_z" pos="0 0 0.065" range="-45 45" stiffness="20" type="hinge"/>
-                <joint armature="0.02" axis="0 1 0" damping="5" name="abdomen_y" pos="0 0 0.065" range="-75 30" stiffness="10" type="hinge"/>
+                <joint armature="0.02" axis="0 1 0" damping="5" name="abdomen_y" pos="0 0 0.065" range="-75 50" stiffness="10" type="hinge"/>
                 <body name="pelvis" pos="0 0 -0.165" quat="1.000 0 -0.002 0">
                     <joint armature="0.02" axis="1 0 0" damping="5" name="abdomen_x" pos="0 0 0.1" range="-35 35" stiffness="10" type="hinge"/>
                     <geom fromto="-.02 -.07 0 -.02 .07 0" name="butt" size="0.09" type="capsule"/>
@@ -46,7 +46,11 @@
                             <joint armature="0.0060" axis="0 -1 0" name="right_knee" pos="0 0 .02" range="-160 -2" type="hinge"/>
                             <geom fromto="0 0 0 0 0 -.3" name="right_shin1" size="0.049" type="capsule"/>
                             <body name="right_foot" pos="0 0 -0.45">
-                                <geom name="right_foot" pos="0 0 0.1" size="0.075" type="sphere" user="0"/>
+                                <geom name="right_foot" pos="0 0 0.1" size="0.05" type="sphere" user="0"/>
+                                <body name="right_foot_base" pos="0 0 0">
+                                    <joint armature="0.01" axis="0 1 0" damping="5" name="right_foot_base" pos="0 0 0" range="-25 45" stiffness="10" type="hinge"/>
+                                    <geom fromto="0 0 0 0.2 0 0" name="right_foot_base_capsule" size="0.049" type="capsule"/>
+                                </body>
                             </body>
                         </body>
                     </body>
@@ -56,10 +60,14 @@
                         <joint armature="0.01" axis="0 1 0" damping="5" name="left_hip_y" pos="0 0 0" range="-120 20" stiffness="20" type="hinge"/>
                         <geom fromto="0 0 0 0 -0.01 -.34" name="left_thigh1" size="0.06" type="capsule"/>
                         <body name="left_shin" pos="0 -0.01 -0.403">
-                            <joint armature="0.0060" axis="0 -1 0" name="left_knee" pos="0 0 .02" range="-160 -2" stiffness="1" type="hinge"/>
+                            <joint armature="0.0060" axis="0 -1 0" name="left_knee" pos="0 0 .02" range="-160 -2" type="hinge"/>
                             <geom fromto="0 0 0 0 0 -.3" name="left_shin1" size="0.049" type="capsule"/>
                             <body name="left_foot" pos="0 0 -0.45">
-                                <geom name="left_foot" type="sphere" size="0.075" pos="0 0 0.1" user="0" />
+                                <geom name="left_foot" type="sphere" size="0.05" pos="0 0 0.1" user="0" />
+                                <body name="left_foot_base" pos="0 0 0">
+                                    <joint armature="0.01" axis="0 1 0" damping="5" name="left_foot_base" pos="0 0 0" range="-25 45" stiffness="10" type="hinge"/>
+                                    <geom fromto="0 0 0 0.2 0 0" name="left_foot_base_capsule" size="0.049" type="capsule"/>
+                                </body>
                             </body>
                         </body>
                     </body>
@@ -107,10 +115,12 @@
         <motor gear="100" joint="right_hip_z" name="right_hip_z"/>
         <motor gear="300" joint="right_hip_y" name="right_hip_y"/>
         <motor gear="200" joint="right_knee" name="right_knee"/>
+        <motor gear="200" joint="right_foot_base" name="right_foot_base"/>
         <motor gear="100" joint="left_hip_x" name="left_hip_x"/>
         <motor gear="100" joint="left_hip_z" name="left_hip_z"/>
         <motor gear="300" joint="left_hip_y" name="left_hip_y"/>
         <motor gear="200" joint="left_knee" name="left_knee"/>
+        <motor gear="200" joint="left_foot_base" name="left_foot_base"/>
         <motor gear="50" joint="right_shoulder1" name="right_shoulder1"/>
         <motor gear="50" joint="right_shoulder2" name="right_shoulder2"/>
         <motor gear="50" joint="right_elbow" name="right_elbow"/>

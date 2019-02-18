@@ -1,3 +1,8 @@
+~/ants_env_my/lib/python3.6/site-packages/gym  - symbolic link  на ~/ants_env_my/baselines_my/gym
+так что теперь gym правильно коммитится  (верно с 1го коммита)
+
+
+
     Здесь запускается симулятор:
 ppo2.py @line333    obs, returns, masks, actions, values, neglogpacs, states, epinfos = runner.run()  
     Именно его надо визуализировать.
